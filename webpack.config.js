@@ -94,6 +94,10 @@ module.exports = {
         }
       },
       {
+        test: /\.ts$/i,
+        use: 'ts-loader'
+      },
+      {
         test: /\.(?:js|mjs|cjs)$/i,
         exclude: /node_modules/,
         use: {
@@ -106,5 +110,8 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
   }
 }
