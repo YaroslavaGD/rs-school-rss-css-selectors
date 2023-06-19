@@ -7,11 +7,63 @@
   <title>RS-CSS-SELECTORS</title>
 </head>
 <body>
-  <div class="sushi"></div>
-  <h1>Webpack first steps</h1>
-  <p>live load 2</p>
-  <footer>
-    <div class="image"></div>
-  </footer>
+  <main></main>
+  <aside class="aside">
+    <div class="aside-header">
+      <h2>Level 1 of 32</h2>
+      <div class="pagination">
+        <button class="pagination__prev">prev</button>
+        <button class="pagination__next">next</button>
+      </div>
+      <button class="level-menu">Menu</button>
+    </div>
+    <div class="aisde-main">
+      <h3 class="aside-main__header">Type Selector</h3>
+      <h4 class="aside-main__header">Select elements by their type</h4>
+      <p class="aside-main__syntax">A</p>
+      <p class="aside-main__text">
+        Selects all elements of type 
+        <span>A</span>. Type refers to the type of tag, so <span>div</span>, <span>p</span> and <span>ul</span> are all different element types.
+      </p>
+      <h4 class="aside-main__exaples">Examples</h4>
+      <ul class="examples">
+        <li><span>div</span> select all <span>div</span> elements.</li>
+        <li><span>p</span> select all <span>p</span> elements.</li>
+      </ul>
+    </div>
+    <nav>
+      <h2>Choose a level</h2>
+      <ul class="levels">
+        <li>
+          <span>1</span><span>A</span>
+        </li>
+        <li>
+          <span>2</span><span>A</span>
+        </li>
+        <li>
+          <span>3</span><span>#id</span>
+        </li>
+        <li>
+          <span>4</span><span>A B</span>
+        </li>
+        <li>
+          <span>5</span><span>#id A</span>
+        </li>
+        <li>
+          <span>6</span><span>.classname</span>
+        </li>
+        <li>
+          <span>7</span><span>A.classname</span>
+        </li>
+        <li>
+          <span>8</span><span>Put your back into it!</span>
+        </li>
+        <li>
+          <span>9</span><span>A, B</span>
+        </li>
+      </ul>
+      <button>Reset progress</button>
+    </nav>
+  </aside>
 </body>
 </html>

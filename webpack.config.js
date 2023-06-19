@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PostcssPresetEnv = require('postcss-preset-env');
 
+const EslintPlugin = require('eslint-webpack-plugin');
+
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
@@ -17,7 +19,7 @@ module.exports = {
     open: true,
     hot: true,
   },
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: path.resolve(__dirname, 'src', 'index'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
@@ -31,6 +33,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
     }),
+    new EslintPlugin({ extensions: 'ts' })
   ],
   module: { 
     rules: [

@@ -1,1 +1,1 @@
-const arr: Array<string> = [];
+const arr: string[] = [];
