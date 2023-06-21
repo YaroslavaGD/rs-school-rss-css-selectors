@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.625rem;
+  padding: 1.5em;
+
+  &__item {
+    text-decoration: none;
+    color: #ffffff;
+    opacity: .3;
+  }
+  &__item--link {
+    opacity: .5;
+    transition: all 0.3s;
+  }
+  &__item--link:hover {
+    opacity: .7;
+  }
+}
