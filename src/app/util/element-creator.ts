@@ -21,7 +21,7 @@ export default class ElementCreator {
 
   private setCssClass(cssClasses: ClassesArr): void {
     if (this.element) {
-      cssClasses.forEach((className) => this.element?.classList.add(className));
+      this.element.classList.add(...cssClasses);
     }
   }
 

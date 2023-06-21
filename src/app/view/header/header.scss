@@ -1,0 +1,29 @@
+@import '../../../style/var.scss';
+.logo {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.75rem 0.938rem 0.688rem 2.2rem;
+  
+  &__a {
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+    color: $text;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__img {
+    display: block;
+    width: 1.5rem;
+    margin-right: 0.5em;
+  }
+}
+
+.header__rule {
+  margin: 0;
+  text-align: center;
+  font-size: 2.813rem;
+  padding: 0.44em 0.66em;
+}

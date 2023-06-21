@@ -1,3 +1,8 @@
+export type ViewParams = {
+  tag: string;
+  classesName: ClassesArr;
+};
+
 export type ElementParams = {
   tag: string;
   classesName: ClassesArr;

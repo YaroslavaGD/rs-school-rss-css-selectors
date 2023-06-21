@@ -1,19 +1,17 @@
-import './footer.scss';
+import './header.scss';
 import { ElementParams } from '../../../types';
 import View from '../view';
 
 const CssClasses = {
-  FOOTER: 'footer',
+  HEADER: 'header',
 };
 
-const TEXT = 'footer text';
-
-export default class FooterView extends View {
+export default class HeaderView extends View {
   constructor() {
     const params: ElementParams = {
-      tag: 'footer',
-      classesName: [CssClasses.FOOTER],
-      textContent: TEXT,
+      tag: 'header',
+      classesName: [CssClasses.HEADER],
+      textContent: 'header text',
       callback: () => {},
     };
     super(params);
