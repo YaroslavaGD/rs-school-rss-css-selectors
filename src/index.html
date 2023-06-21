@@ -17,7 +17,9 @@
       </h1>
       <h2 class="header__rule">Select the plates</h2>
     </header>
-    <div class="viewer"></div>
+    <div class="viewer">
+      <div class="table"></div>
+    </div>
     <div class="editor">
       <div class="code">
         <div class="code__header">
@@ -37,71 +39,101 @@
           <h3 class="layout__name">HTML</h3>
           <h4 class="layout__filename">table.html</h4>
         </div>
+        <div class="layout__window">
+          <div class="layout__numbers">
+            1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20
+          </div>
+        </div>
       </div>
     </div>
     <footer class="footer">
-      <a href="#">Github</a>
-      <a href="#">Design</a>
-      <div>2023</div>
-      <a href="#">RS-Shool</a>
+      <span class="footer__item">2023</span>
+      <a class="footer__item footer__item--link" href="#">Github</a>
+      <a class="footer__item footer__item--link" href="#">Design</a>
+      <a class="footer__item footer__item--link" href="#">RS-Shool</a>
     </footer>
   </main>
-  <aside class="aside">
-    <div class="aside-header">
-      <h2>Level 1 of 32</h2>
-      <div class="pagination">
-        <button class="pagination__prev">prev</button>
-        <button class="pagination__next">next</button>
+  <aside class="aside open">
+    <div class="rules">
+      <div class="rules__header">
+        <h2 class="level-number">
+          <span class="level-number__text">Level 1 of 32</span>
+          <span class="level-number__mark"></span>
+        </h2>
+        <div class="level-pagination">
+          <button class="level-pagination__prev"></button>
+          <button class="level-pagination__next"></button>
+        </div>
       </div>
-      <button class="level-menu">Menu</button>
-    </div>
-    <div class="aisde-main">
-      <h3 class="aside-main__header">Type Selector</h3>
-      <h4 class="aside-main__header">Select elements by their type</h4>
-      <p class="aside-main__syntax">A</p>
-      <p class="aside-main__text">
-        Selects all elements of type 
-        <span>A</span>. Type refers to the type of tag, so <span>div</span>, <span>p</span> and <span>ul</span> are all different element types.
-      </p>
-      <h4 class="aside-main__exaples">Examples</h4>
-      <ul class="examples">
-        <li><span>div</span> select all <span>div</span> elements.</li>
-        <li><span>p</span> select all <span>p</span> elements.</li>
-      </ul>
+      <div class="rules__main rules-main">
+        <h3 class="rules-main__header">Type Selector</h3>
+        <h4 class="rules-main__header">Select elements by their type</h4>
+        <p class="rules-main__syntax">A</p>
+        <p class="rules-main__text">
+          Selects all elements of type 
+          <span>A</span>. Type refers to the type of tag, so <span>div</span>, <span>p</span> and <span>ul</span> are all different element types.
+        </p>
+        <h4 class="rules-main__examples">Examples</h4>
+        <ul class="examples">
+          <li><span>div</span> select all <span>div</span> elements.</li>
+          <li><span>p</span> select all <span>p</span> elements.</li>
+        </ul>
+      </div>
     </div>
     <nav class="levels-wrapper">
       <h2 class="levels-wrapper__header">Choose a level</h2>
-      <ul class="levels">
-        <li>
-          <span>1</span><span>A</span>
+      <ol class="levels">
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">A</span>
+          </button>
         </li>
-        <li>
-          <span>2</span><span>A</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+       span><span class="levels__name">A</span>
+          </button>
         </li>
-        <li>
-          <span>3</span><span>#id</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">#id</span>
+          </button>
         </li>
-        <li>
-          <span>4</span><span>A B</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">A B</span>
+          </button>
         </li>
-        <li>
-          <span>5</span><span>#id A</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">#id A</span>
+          </button>
         </li>
-        <li>
-          <span>6</span><span>.classname</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">.classname</span>
+          </button>
         </li>
-        <li>
-          <span>7</span><span>A.classname</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">A.classname</span>
+          </button>
         </li>
-        <li>
-          <span>8</span><span>Put your back into it!</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">Put your back into it!</span>
+          </button>
         </li>
-        <li>
-          <span>9</span><span>A, B</span>
+        <li class="levels__item">
+          <button class="levels__item-button">
+            <span class="levels__name">A, B</span>
+          </button>
         </li>
-      </ul>
-      <button>Reset progress</button>
+      </ol>
+      <button class="levels__reset">Reset progress</button>
     </nav>
+    <button class="level-menu">
+      <span class="level-menu__lines"></span>
+    </button>
   </aside>
 
 </body>
