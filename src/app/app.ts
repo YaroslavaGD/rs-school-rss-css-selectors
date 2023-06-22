@@ -1,6 +1,6 @@
 import '../index.scss';
-import HeaderView from './view/header/header-view';
-import FooterView from './view/footer/footer-view';
+import MainView from './view/main/main-view';
+import AsideView from './view/aside/aside-view';
 
 export default class App {
   constructor() {
@@ -10,10 +10,15 @@ export default class App {
   public run(): void {}
 
   private createView(): void {
-    const headerView: HeaderView = new HeaderView();
-    const footerView: FooterView = new FooterView();
+    const mainView: HTMLElement | null = new MainView().getHTMLElement();
+    const asideView: HTMLElement | null = new AsideView().getHTMLElement();
 
-    document.body.append(headerView.getHTMLElement() as Node);
-    document.body.append(footerView.getHTMLElement() as Node);
+    if (mainView instanceof Node) {
+      document.body.append(mainView);
+    }
+
+    if (asideView instanceof Node) {
+      document.body.append(asideView);
+    }
   }
 }

@@ -1,0 +1,16 @@
+.room {
+  margin-bottom: 3.125rem;
+}
+
+.floor {
+  transform: rotateX(20deg);
+  width: 478px;
+  opacity: 1;
+  margin: 0 auto;
+  min-height: 300px;
+  border-radius: 30px;
+  background: url('../../../../img/floor.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position:  0 100%;
+}

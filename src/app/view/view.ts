@@ -2,7 +2,7 @@ import { ElementParams } from '../../types';
 import ElementCreator from '../util/element-creator';
 
 export default abstract class View {
-  private elementCreator: ElementCreator;
+  protected elementCreator: ElementCreator;
 
   constructor(params: ElementParams) {
     this.elementCreator = this.createView(params);

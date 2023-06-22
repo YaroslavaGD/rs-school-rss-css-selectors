@@ -11,6 +11,14 @@ export default class ElementCreator {
     this.setCallback(params.callback);
   }
 
+  public addInnerElement(element: HTMLElement | ElementCreator): void {
+    if (element instanceof ElementCreator) {
+      this.element?.append(element.getElement() as Node);
+    } else {
+      this.element?.append(element);
+    }
+  }
+
   public getElement(): HTMLElement | null {
     return this.element;
   }

@@ -12,3 +12,8 @@ export type ElementParams = {
 
 export type Callback = <T extends Event>(event?: T) => void;
 export type ClassesArr = string[];
+
+export type LinkParams = {
+  name: string;
+  url: string;
+};

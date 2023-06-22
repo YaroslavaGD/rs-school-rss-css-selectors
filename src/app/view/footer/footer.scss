@@ -11,6 +11,7 @@
   }
   &__item--link {
     opacity: .5;
+    cursor: pointer;
     transition: all 0.3s;
   }
   &__item--link:hover {
