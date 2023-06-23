@@ -29,7 +29,6 @@ export default class RoomView extends View {
       callback: () => {},
     };
     const creatorFloor = new ElementCreator(paramsFloor);
-
     this.elementCreator.addInnerElement(creatorFloor);
   }
 }

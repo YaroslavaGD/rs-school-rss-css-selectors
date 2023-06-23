@@ -1,0 +1,10 @@
+.rules {
+  padding: 20px;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+  }
+}

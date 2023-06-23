@@ -1,0 +1,48 @@
+.level-pagination {
+  line-height: 0;
+
+  &__prev,  
+  &__next {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background: none;
+    opacity: 0.25;
+    cursor: pointer;
+    transition: opacity .3s ease-out;
+  }
+
+  &__prev::after,
+  &__next::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    height: 18px;
+    width: 18px;
+    border: 2px solid #ffffff;
+    border-width: 2px 2px 0 0;
+    transform-origin: center center;
+  }
+  
+  &__prev::after {
+    right: 2px;
+    transform: rotate(-135deg);
+  }
+  &__next::after {
+    left: 2px;
+    transform: rotate(45deg);
+  }
+
+  &__prev:hover,
+  &__next:hover {
+    opacity: .4;
+  }
+
+  &__prev:active,
+  &__next:active {
+    opacity: .6;
+  }
+}

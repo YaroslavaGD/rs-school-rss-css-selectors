@@ -1,6 +1,7 @@
 import './aside.scss';
 import { ElementParams } from '../../../types';
 import View from '../view';
+import RulesView from './rules/rules-view';
 
 const CssClasses = {
   ASIDE: 'aside',
@@ -16,7 +17,13 @@ export default class AsideView extends View {
     };
 
     super(params);
+    this.configureView();
   }
 
-  private configureView(): void {}
+  private configureView(): void {
+    const rulesView: HTMLElement | null = new RulesView().getHTMLElement();
+    if (rulesView instanceof Node) {
+      this.elementCreator.addInnerElement(rulesView);
+    }
+  }
 }
