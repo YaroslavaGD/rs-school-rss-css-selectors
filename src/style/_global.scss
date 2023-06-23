@@ -199,69 +199,69 @@ html {
   }
 }
 
-.level-menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 30px;
-  padding: 4px 2px;
-  opacity: .25;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1;
-  transition: linear all .05s;
+// .menu-button {
+//   position: absolute;
+//   top: 20px;
+//   right: 20px;
+//   height: 30px;
+//   padding: 4px 2px;
+//   opacity: .25;
+//   background: none;
+//   border: none;
+//   cursor: pointer;
+//   z-index: 1;
+//   transition: linear all .05s;
 
-  &__lines {
-    position: relative;
-    display: block;
-    width: 27px;
-    height: 2px;
-    cursor: pointer;
-    background: rgba(255,255,255,1);
-    transition: all .15s ease-out;
-  }
+//   &__lines {
+//     position: relative;
+//     display: block;
+//     width: 27px;
+//     height: 2px;
+//     cursor: pointer;
+//     background: rgba(255,255,255,1);
+//     transition: all .15s ease-out;
+//   }
   
-  &__lines:before,
-  &__lines:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 2px;
-    background: rgba(255,255,255,1);
-    transform-origin: left;
-    transition: all .15s ease-out;
-  }
-  &__lines:before {
-    top: -10px;
-    left: 0;
-    // transform: translateX(-50%);
-  }
+//   &__lines:before,
+//   &__lines:after {
+//     position: absolute;
+//     content: "";
+//     width: 100%;
+//     height: 2px;
+//     background: rgba(255,255,255,1);
+//     transform-origin: left;
+//     transition: all .15s ease-out;
+//   }
+//   &__lines:before {
+//     top: -10px;
+//     left: 0;
+//     // transform: translateX(-50%);
+//   }
 
-  &__lines:after {
-    top: 10px;
-    left: 0;
-    // transform: translateX(-50%);
-  }
-}
+//   &__lines:after {
+//     top: 10px;
+//     left: 0;
+//     // transform: translateX(-50%);
+//   }
+// }
 
-.level-menu:hover {
-  opacity: 0.4;
-}
+// .menu-button:hover {
+//   opacity: 0.4;
+// }
 
-.open .level-menu__lines {
-  background: rgba(255, 255, 255, 0);
-}
+// .open .menu-button__lines {
+//   background: rgba(255, 255, 255, 0);
+// }
 
-.open .level-menu__lines:before {
-  top: -9px;
-  transform: rotate(45deg);
-}
+// .open .menu-button__lines:before {
+//   top: -9px;
+//   transform: rotate(45deg);
+// }
 
-.open .level-menu__lines:after {
-  top: 10px;
-  transform: rotate(-45deg);
-}
+// .open .menu-button__lines:after {
+//   top: 10px;
+//   transform: rotate(-45deg);
+// }
 
 // .logo {
 //   display: flex;
