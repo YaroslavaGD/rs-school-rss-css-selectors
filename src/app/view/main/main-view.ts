@@ -6,6 +6,7 @@ import HeaderView from '../header/header-view';
 import FooterView from '../footer/footer-view';
 import RoomView from './room/room-view';
 import EditorView from './editor/editor-view';
+import { EventType, eventEmitter } from '../../event-emitter/event-emitter';
 
 const CssClasses = {
   MAIN: 'main',
@@ -26,7 +27,9 @@ export default class MainView extends View {
 
   private configureView(): void {
     const headerView: HTMLElement | null = new HeaderView().getHTMLElement();
-    const roomView: HTMLElement | null = new RoomView().getHTMLElement();
+    const room = new RoomView();
+    eventEmitter.subscribe(EventType.CHANGE_LEVEL, room.onEnterClick);
+    const roomView: HTMLElement | null = room.getHTMLElement();
     const editorView: HTMLElement | null = new EditorView().getHTMLElement();
     const footerView: HTMLElement | null = new FooterView().getHTMLElement();
 

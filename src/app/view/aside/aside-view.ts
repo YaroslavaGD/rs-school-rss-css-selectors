@@ -4,6 +4,7 @@ import View from '../view';
 import RulesView from './rules/rules-view';
 import MenuButtonView from './menu-button/menu-button-view';
 import LevelsNavView from './levels-nav/levels-nav-view';
+import { EventType, eventEmitter } from '../../event-emitter/event-emitter';
 
 const CssClasses = {
   ASIDE: 'aside',
@@ -25,8 +26,10 @@ export default class AsideView extends View {
 
   private configureView(): void {
     const rulesView: HTMLElement | null = new RulesView().getHTMLElement();
-    const levelsNavView: HTMLElement | null = new LevelsNavView().getHTMLElement();
+    const levelsNav = new LevelsNavView();
+    const levelsNavView: HTMLElement | null = levelsNav.getHTMLElement();
     const menuButtonView: HTMLElement | null = new MenuButtonView().getHTMLElement();
+    eventEmitter.subscribe(EventType.CHANGE_LEVEL, levelsNav.setHeader);
 
     if (rulesView instanceof Node) {
       this.elementCreator.addInnerElement(rulesView);

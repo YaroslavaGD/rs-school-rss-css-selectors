@@ -2,6 +2,7 @@ import './code.scss';
 import View from '../../../view';
 import { ElementParams } from '../../../../../types';
 import ElementCreator from '../../../../util/element-creator';
+import { EventType, eventEmitter } from '../../../../event-emitter/event-emitter';
 
 const CssClasses = {
   CODE: 'code',
@@ -133,7 +134,10 @@ export default class CodeView extends View {
       tag: 'button',
       classesName: [CssClasses.CODE_BUTTON],
       textContent: TEXT_BUTTON,
-      callback: () => {},
+      callback: () => {
+        console.log('click enter Btn');
+        eventEmitter.emit(EventType.CHANGE_LEVEL);
+      },
     };
     const creatorButton = new ElementCreator(paramsButton);
 

@@ -21,6 +21,10 @@ export default class RoomView extends View {
     this.configureView();
   }
 
+  public onEnterClick(): void {
+    console.log('view know it!');
+  }
+
   private configureView(): void {
     const paramsFloor: ElementParams = {
       tag: 'div',

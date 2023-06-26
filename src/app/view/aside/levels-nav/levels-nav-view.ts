@@ -32,6 +32,10 @@ export default class LevelsNavView extends View {
     this.configureView();
   }
 
+  public setHeader(): void {
+    console.log('enter clicked - i know it!');
+  }
+
   private configureView(): void {
     const paramsHeader: ElementParams = {
       tag: 'h2',
@@ -70,7 +74,7 @@ export default class LevelsNavView extends View {
       const creatorLevelItem = new ElementCreator(paramsLevelItem);
 
       const paramsLevelButton: ElementParams = {
-        tag: 'li',
+        tag: 'button',
         classesName: [CssClasses.LEVELS_NAV_BUTTON],
         textContent: '',
         callback: () => {},
