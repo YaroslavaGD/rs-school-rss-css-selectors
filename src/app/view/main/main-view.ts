@@ -17,8 +17,6 @@ export default class MainView extends View {
     const params: ElementParams = {
       tag: 'main',
       classesName: [CssClasses.MAIN],
-      textContent: '',
-      callback: () => {},
     };
 
     super(params);

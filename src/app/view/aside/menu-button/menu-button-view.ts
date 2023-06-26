@@ -13,8 +13,6 @@ export default class MenuButtonView extends View {
     const params: ElementParams = {
       tag: 'button',
       classesName: [CssClasses.MENU_BUTTON],
-      textContent: '',
-      callback: () => {},
     };
 
     super(params);
@@ -25,8 +23,6 @@ export default class MenuButtonView extends View {
     const paramsLines: ElementParams = {
       tag: 'span',
       classesName: [CssClasses.MENU_BUTTON_LINES],
-      textContent: '',
-      callback: () => {},
     };
 
     const creatorLines = new ElementCreator(paramsLines);

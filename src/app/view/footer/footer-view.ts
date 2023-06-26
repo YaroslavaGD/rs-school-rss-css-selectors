@@ -31,8 +31,6 @@ export default class FooterView extends View {
     const params: ElementParams = {
       tag: 'footer',
       classesName: [CssClasses.FOOTER],
-      textContent: '',
-      callback: () => {},
     };
     super(params);
     this.configureView();
@@ -48,7 +46,6 @@ export default class FooterView extends View {
       tag: 'span',
       classesName: [CssClasses.FOOTER_ITEM],
       textContent: YEAR_TEXT,
-      callback: () => {},
     };
     const yearCreator = new ElementCreator(paramsYear);
     this.elementCreator.addInnerElement(yearCreator);
@@ -60,7 +57,6 @@ export default class FooterView extends View {
         tag: 'a',
         classesName: [CssClasses.FOOTER_ITEM, CssClasses.FOOTER_LINK],
         textContent: item.name,
-        callback: () => {},
       };
       const linkCreator = new ElementCreator(paramsLink);
       linkCreator.getElement()?.setAttribute('href', item.url);

@@ -13,8 +13,6 @@ export default class RoomView extends View {
     const params: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.ROOM],
-      textContent: '',
-      callback: () => {},
     };
 
     super(params);
@@ -29,8 +27,6 @@ export default class RoomView extends View {
     const paramsFloor: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.FLOOR],
-      textContent: '',
-      callback: () => {},
     };
     const creatorFloor = new ElementCreator(paramsFloor);
     this.elementCreator.addInnerElement(creatorFloor);

@@ -7,8 +7,8 @@ export default class ElementCreator {
     this.element = null;
     this.createElement(params);
     this.setCssClass(params.classesName);
-    this.setTextContent(params.textContent);
-    this.setCallback(params.callback);
+    if (params.textContent) this.setTextContent(params.textContent);
+    if (params.callback) this.setCallback(params.callback);
   }
 
   public addInnerElement(element: HTMLElement | ElementCreator): void {

@@ -14,8 +14,6 @@ export default class EditorView extends View {
     const params: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.EDITOR],
-      textContent: '',
-      callback: () => {},
     };
     super(params);
     this.configureView();

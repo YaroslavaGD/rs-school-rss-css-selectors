@@ -30,8 +30,6 @@ export default class CodeView extends View {
     const params: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.CODE],
-      textContent: '',
-      callback: () => {},
     };
     super(params);
     this.configureView();
@@ -46,8 +44,6 @@ export default class CodeView extends View {
     const paramsHeader: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.CODE_HEADER],
-      textContent: '',
-      callback: () => {},
     };
     const creatorHeader = new ElementCreator(paramsHeader);
 
@@ -55,7 +51,6 @@ export default class CodeView extends View {
       tag: 'h3',
       classesName: [CssClasses.CODE_NAME],
       textContent: TEXT_HEADER.NAME,
-      callback: () => {},
     };
     const creatorName = new ElementCreator(paramsName);
     creatorHeader.addInnerElement(creatorName);
@@ -64,7 +59,6 @@ export default class CodeView extends View {
       tag: 'h4',
       classesName: [CssClasses.CODE_FILENAME],
       textContent: TEXT_HEADER.FILENAME,
-      callback: () => {},
     };
     const creatorFileName = new ElementCreator(paramsFileName);
     creatorHeader.addInnerElement(creatorFileName);
@@ -76,8 +70,6 @@ export default class CodeView extends View {
     const paramsWindow: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.CODE_WINDOW],
-      textContent: '',
-      callback: () => {},
     };
     const creatorWindow = new ElementCreator(paramsWindow);
     const creatorNumbers = this.getNumbers(NUM_LINES);
@@ -94,8 +86,6 @@ export default class CodeView extends View {
     const paramsNumbers: ElementParams = {
       tag: 'div',
       classesName: [CssClasses.CODE_NUMBERS],
-      textContent: '',
-      callback: () => {},
     };
     const creatorNumbers = new ElementCreator(paramsNumbers);
 
@@ -104,7 +94,6 @@ export default class CodeView extends View {
         tag: 'span',
         classesName: [],
         textContent: i.toString(),
-        callback: () => {},
       };
       const creatorItem = new ElementCreator(itemParams);
       creatorNumbers.addInnerElement(creatorItem);

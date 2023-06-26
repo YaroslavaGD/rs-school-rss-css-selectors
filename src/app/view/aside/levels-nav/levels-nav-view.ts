@@ -25,8 +25,6 @@ export default class LevelsNavView extends View {
     const params: ElementParams = {
       tag: 'nav',
       classesName: [CssClasses.LEVELS_NAV_WRAPPER],
-      textContent: '',
-      callback: () => {},
     };
     super(params);
     this.configureView();
@@ -41,7 +39,6 @@ export default class LevelsNavView extends View {
       tag: 'h2',
       classesName: [CssClasses.LEVELS_NAV_WRAPPER_HEADER],
       textContent: TEXT_HEADER,
-      callback: () => {},
     };
     const creatorHeader = new ElementCreator(paramsHeader);
     this.elementCreator.addInnerElement(creatorHeader);
@@ -50,7 +47,6 @@ export default class LevelsNavView extends View {
       tag: 'button',
       classesName: [CssClasses.LEVELS_RESET],
       textContent: TEXT_RESET,
-      callback: () => {},
     };
     const creatorReset = new ElementCreator(paramsReset);
     this.elementCreator.addInnerElement(creatorReset);
@@ -60,8 +56,6 @@ export default class LevelsNavView extends View {
     const paramsLevels: ElementParams = {
       tag: 'ol',
       classesName: [CssClasses.LEVELS_NAV],
-      textContent: '',
-      callback: () => {},
     };
     const creatorLevels = new ElementCreator(paramsLevels);
     levelsTextArr.forEach((levelText) => {
@@ -76,8 +70,6 @@ export default class LevelsNavView extends View {
       const paramsLevelButton: ElementParams = {
         tag: 'button',
         classesName: [CssClasses.LEVELS_NAV_BUTTON],
-        textContent: '',
-        callback: () => {},
       };
       const creatorLevelButton = new ElementCreator(paramsLevelButton);
 
@@ -85,7 +77,6 @@ export default class LevelsNavView extends View {
         tag: 'span',
         classesName: [CssClasses.LEVELS_NAV_NAME],
         textContent: levelText,
-        callback: () => {},
       };
       const creatorLevelName = new ElementCreator(paramsLevelName);
 

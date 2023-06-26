@@ -19,8 +19,6 @@ export default class HeaderView extends View {
     const params: ElementParams = {
       tag: 'header',
       classesName: [CssClasses.HEADER],
-      textContent: '',
-      callback: () => {},
     };
     super(params);
     this.configureView();
@@ -35,8 +33,6 @@ export default class HeaderView extends View {
     const paramsLogo: ElementParams = {
       tag: 'h1',
       classesName: [CssClasses.LOGO],
-      textContent: '',
-      callback: () => {},
     };
     const creatorLogo = new ElementCreator(paramsLogo);
 
@@ -44,15 +40,12 @@ export default class HeaderView extends View {
       tag: 'a',
       classesName: [CssClasses.LOGO_A],
       textContent: LOGO_TEXT,
-      callback: () => {},
     };
     const creatorLink = new ElementCreator(paramsLink);
 
     const paramsImg: ElementParams = {
       tag: 'img',
       classesName: [CssClasses.LOGO_IMG],
-      textContent: '',
-      callback: () => {},
     };
     const creatorImg = new ElementCreator(paramsImg);
 
@@ -67,7 +60,6 @@ export default class HeaderView extends View {
       tag: 'h2',
       classesName: [CssClasses.HEADER_RULE],
       textContent: RULE_TEXT,
-      callback: () => {},
     };
 
     const creatorRules = new ElementCreator(paramsRules);

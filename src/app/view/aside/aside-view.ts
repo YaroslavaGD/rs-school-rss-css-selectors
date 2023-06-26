@@ -16,8 +16,6 @@ export default class AsideView extends View {
     const params: ElementParams = {
       tag: 'aside',
       classesName: [CssClasses.ASIDE, CssClasses.OPEN],
-      textContent: '',
-      callback: () => {},
     };
 
     super(params);
