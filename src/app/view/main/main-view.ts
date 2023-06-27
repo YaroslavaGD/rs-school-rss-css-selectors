@@ -24,24 +24,25 @@ export default class MainView extends View {
   }
 
   private configureView(): void {
-    const headerView: HTMLElement | null = new HeaderView().getHTMLElement();
-    const room = new RoomView();
-    eventEmitter.subscribe(EventType.CHANGE_LEVEL, room.onEnterClick);
-    const roomView: HTMLElement | null = room.getHTMLElement();
-    const editorView: HTMLElement | null = new EditorView().getHTMLElement();
-    const footerView: HTMLElement | null = new FooterView().getHTMLElement();
+    const header: HTMLElement | null = new HeaderView().getHTMLElement();
+    const roomView = new RoomView();
+    const room: HTMLElement | null = roomView.getHTMLElement();
+    const editor: HTMLElement | null = new EditorView().getHTMLElement();
+    const footer: HTMLElement | null = new FooterView().getHTMLElement();
 
-    if (headerView instanceof Node) {
-      this.elementCreator.addInnerElement(headerView);
+    if (header instanceof Node) {
+      this.elementCreator.addInnerElement(header);
     }
-    if (roomView instanceof Node) {
-      this.elementCreator.addInnerElement(roomView);
+    if (room instanceof Node) {
+      this.elementCreator.addInnerElement(room);
     }
-    if (editorView instanceof Node) {
-      this.elementCreator.addInnerElement(editorView);
+    if (editor instanceof Node) {
+      this.elementCreator.addInnerElement(editor);
     }
-    if (footerView instanceof Node) {
-      this.elementCreator.addInnerElement(footerView);
+    if (footer instanceof Node) {
+      this.elementCreator.addInnerElement(footer);
     }
+
+    eventEmitter.subscribe(EventType.CHANGE_LEVEL, roomView.onEnterClick);
   }
 }

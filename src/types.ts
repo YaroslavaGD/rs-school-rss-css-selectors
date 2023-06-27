@@ -17,3 +17,12 @@ export type LinkParams = {
   name: string;
   url: string;
 };
+
+export type RoomObject = {
+  name: string;
+  tagName: string;
+  class: string;
+  inner?: RoomObject[];
+};
+
+export type RoomObjectArray = RoomObject[];

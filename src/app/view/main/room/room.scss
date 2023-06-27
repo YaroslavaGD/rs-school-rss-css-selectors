@@ -3,14 +3,53 @@
 }
 
 .floor {
+  display: flex;
+  align-items: flex-end;
+  padding: 70px;
   transform: rotateX(20deg);
-  width: 478px;
+  // width: 478px;
+  width: 700px;
+  // height: 160px;
   opacity: 1;
   margin: 0 auto;
   min-height: 300px;
   border-radius: 30px;
-  background: url('../../../../img/floor.svg');
+  background: url('../../../../img/floor2.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position:  0 100%;
+}
+
+cat.animal {
+  position: relative;
+  display: flex;
+  width: 150px;
+  height: 116px;
+  background: url('../../../../img/cat.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+cat.animal cat.small {
+  position: absolute;
+  display: block;
+  width: 84px;
+  height: 75px;
+  background: url('../../../../img/cat-small.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+cat.animal cat.small:nth-child(1) {
+  top: -71px;
+  left: 30px;
+  z-index: 1;
+}
+cat.animal cat.small:nth-child(2) {
+  top: -42px;
+  left: 30px;
+}
+cat.animal cat.small:nth-child(3) {
+  top: -100px;
+  left: 30px;
+  z-index: 1;
 }

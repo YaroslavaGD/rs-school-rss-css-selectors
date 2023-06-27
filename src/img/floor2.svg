@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Krita: https://krita.org -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="168pt"
+    height="38.4pt"
+    viewBox="0 0 168 38.4">
+<defs/>
+<g id="group0" transform="translate(-0.0794908579765945, 0)" fill="none">
+  <rect id="shape0" fill="#e2cea5" fill-rule="evenodd" stroke="none" stroke-width="0.72" stroke-linecap="square" stroke-linejoin="bevel" width="168" height="38.4"/>
+  <rect id="shape1" transform="translate(0.0794908579765945, 28.8)" fill="#ad9475" fill-rule="evenodd" stroke="none" stroke-width="0.48" stroke-linecap="square" stroke-linejoin="bevel" width="168" height="9.36"/>
+  <path id="shape2" transform="translate(0.0794908579765945, 9.73398677114662)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0.0178854L168 0" sodipodi:nodetypes="cc"/>
+  <path id="shape3" transform="translate(0.114268108341365, 19.2)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L167.965 0.102699" sodipodi:nodetypes="cc"/>
+  <path id="shape4" transform="translate(0.0794908579765945, 28.8177544998861)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0.0894272L168 0" sodipodi:nodetypes="cc"/>
+  <path id="shape5" transform="translate(24.0794908579766, 19.2)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.5481 0" sodipodi:nodetypes="cc"/>
+  <path id="shape6" transform="translate(62.4794908579766, 19.2)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.4627 0" sodipodi:nodetypes="cc"/>
+  <path id="shape7" transform="translate(100.879490857977, 19.2)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.6158 0" sodipodi:nodetypes="cc"/>
+  <path id="shape8" transform="translate(139.279490857977, 19.2)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.6496 0" sodipodi:nodetypes="cc"/>
+  <path id="shape9" transform="translate(57.7451401413983, 9.6)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.3344 0" sodipodi:nodetypes="cc"/>
+  <path id="shape10" transform="translate(19.2318194517209, 9.6)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.4477 0" sodipodi:nodetypes="cc"/>
+  <path id="shape11" transform="translate(96.0994791151224, 9.6)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.3708 0" sodipodi:nodetypes="cc"/>
+  <path id="shape12" transform="translate(134.255090943905, 9.6)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.5755 0" sodipodi:nodetypes="cc"/>
+  <path id="shape13" transform="translate(14.4794908579766, 0)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.5297 0" sodipodi:nodetypes="cc"/>
+  <path id="shape14" transform="translate(52.8794908579766, 0)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.4046 0" sodipodi:nodetypes="cc"/>
+  <path id="shape15" transform="translate(91.2794908579766, 0)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.4781 0" sodipodi:nodetypes="cc"/>
+  <path id="shape16" transform="translate(129.679490857977, 0)" fill="none" stroke="#926855" stroke-width="0.24" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 9.6L14.512 0" sodipodi:nodetypes="cc"/>
+ </g>
+</svg>
