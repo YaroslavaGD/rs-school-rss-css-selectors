@@ -3,6 +3,7 @@ import View from '../../view';
 import { ElementParams } from '../../../../types';
 import CodeView from './code/code-view';
 import LayoutView from './layout/layout-view';
+import { EventType, eventEmitter } from '../../../event-emitter/event-emitter';
 // import ElementCreator from '../../../util/element-creator';
 
 const CssClasses = {
@@ -20,14 +21,16 @@ export default class EditorView extends View {
   }
 
   private configureView(): void {
-    const codeView: HTMLElement | null = new CodeView().getHTMLElement();
-    if (codeView instanceof Node) {
-      this.elementCreator.addInnerElement(codeView);
+    const code: HTMLElement | null = new CodeView().getHTMLElement();
+    if (code instanceof Node) {
+      this.elementCreator.addInnerElement(code);
+    }
+    const layoutView = new LayoutView();
+    const layout: HTMLElement | null = layoutView.getHTMLElement();
+    if (layout instanceof Node) {
+      this.elementCreator.addInnerElement(layout);
     }
 
-    const layoutView: HTMLElement | null = new LayoutView().getHTMLElement();
-    if (layoutView instanceof Node) {
-      this.elementCreator.addInnerElement(layoutView);
-    }
+    eventEmitter.subscribe(EventType.CHANGE_LEVEL, layoutView.onLevelChange.bind(layoutView));
   }
 }

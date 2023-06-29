@@ -1,6 +1,6 @@
 import './layout.scss';
 import View from '../../../view';
-import { ElementParams, RoomObjectArray } from '../../../../../types';
+import { ElementParams, RoomObject, RoomObjectArray } from '../../../../../types';
 import ElementCreator from '../../../../util/element-creator';
 import { LEVELS, STATE } from '../../../../data/data';
 
@@ -22,6 +22,8 @@ const TEXT_HEADER = {
 const NUM_LINES = 20;
 
 export default class LayoutView extends View {
+  private creatorCode: ElementCreator | null = null;
+
   constructor() {
     const params: ElementParams = {
       tag: 'div',
@@ -71,13 +73,15 @@ export default class LayoutView extends View {
     const creatorNumbers = this.getNumbers(NUM_LINES);
 
     creatorWindow.addInnerElement(creatorNumbers);
+
     const paramsCode: ElementParams = {
       tag: 'pre',
       classesName: [CssClasses.LAYOUT_CODE],
     };
+
     const creatorCode = new ElementCreator(paramsCode);
-    const currentLevel: RoomObjectArray = LEVELS[STATE.currentLevel];
-    this.drawCode(creatorCode, currentLevel);
+    this.creatorCode = creatorCode;
+    this.drawCode();
 
     creatorWindow.addInnerElement(creatorCode);
     this.elementCreator.addInnerElement(creatorWindow);
@@ -102,15 +106,67 @@ export default class LayoutView extends View {
     return creatorNumbers;
   }
 
-  private drawCode(creatorParent: ElementCreator, elementsArray: RoomObjectArray): void {
-    elementsArray.forEach((element) => {
-      const paramsElement: ElementParams = {
-        tag: element.tagName,
-        classesName: [element.class],
-      };
-      const creatorElement = new ElementCreator(paramsElement);
-      if (element.inner) this.drawCode(creatorElement, element?.inner);
-      creatorParent.addInnerElement(creatorElement);
-    });
+  public onLevelChange(): void {
+    this.drawCode();
+  }
+
+  public drawCode(): void {
+    const currentLevel: RoomObjectArray = LEVELS[STATE.currentLevel];
+    this.creatorCode?.setTextContent(this.generateHTMLText([currentLevel]));
+  }
+
+  private clearCode(): void {
+    if (this.creatorCode) {
+      let firstChild = this.creatorCode.getElement()?.firstChild;
+      while (firstChild) {
+        this.creatorCode.getElement()?.removeChild(firstChild);
+        firstChild = this.creatorCode.getElement()?.firstChild;
+      }
+    }
+  }
+
+  private generateHTMLText(structure: RoomObjectArray[]): string {
+    let html = '';
+    let indentation = 0;
+
+    for (let i = 0; i < structure.length; i += 1) {
+      const roomObjects = structure[i];
+      html += `${this.indent(indentation)}<div class="room">\n`;
+      indentation += 2;
+
+      for (let j = 0; j < roomObjects.length; j += 1) {
+        const object = roomObjects[j];
+        html += this.generateObjectHTMLText(object, indentation);
+      }
+
+      indentation -= 2;
+      html += `${this.indent(indentation)}</div>\n`;
+    }
+
+    return html;
+  }
+
+  private generateObjectHTMLText(object: RoomObject, indentation: number): string {
+    let localIndentation = indentation;
+    let html = `${this.indent(indentation)}<${object.tagName} class="${object.class}">\n`;
+
+    if (object.inner && object.inner.length > 0) {
+      localIndentation += 2;
+
+      for (let i = 0; i < object.inner.length; i += 1) {
+        const innerObject = object.inner[i];
+        html += this.generateObjectHTMLText(innerObject, localIndentation);
+      }
+
+      localIndentation -= 2;
+    }
+
+    html += `${this.indent(localIndentation)}</${object.tagName}>\n`;
+
+    return html;
+  }
+
+  private indent(indentation: number): string {
+    return ' '.repeat(indentation);
   }
 }

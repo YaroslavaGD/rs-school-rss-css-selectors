@@ -29,12 +29,22 @@ export default class ElementCreator {
     }
   }
 
-  private createElement(params: ElementParams): void {
-    this.element = document.createElement(params.tag);
+  public setTextContent(textContent: string): void {
+    if (this.element) {
+      this.element.innerText = textContent;
+    }
   }
 
-  private setTextContent(textContent: string): void {
-    if (this.element) this.element.textContent = textContent;
+  public clearInnerHtml(): void {
+    if (this.element) this.element.innerHTML = '';
+  }
+
+  public setInnerHtml(innerContent: string): void {
+    if (this.element) this.element.innerHTML = innerContent;
+  }
+
+  private createElement(params: ElementParams): void {
+    this.element = document.createElement(params.tag);
   }
 
   private setCallback(callback: Callback): void {
