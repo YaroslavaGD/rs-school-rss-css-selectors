@@ -1,7 +1,8 @@
 import './layout.scss';
 import View from '../../../view';
-import { ElementParams } from '../../../../../types';
+import { ElementParams, RoomObjectArray } from '../../../../../types';
 import ElementCreator from '../../../../util/element-creator';
+import { LEVELS, STATE } from '../../../../data/data';
 
 const CssClasses = {
   LAYOUT: 'layout',
@@ -9,6 +10,7 @@ const CssClasses = {
   LAYOUT_NAME: 'layout__name',
   LAYOUT_FILENAME: 'layout__filename',
   LAYOUT_WINDOW: 'layout__window',
+  LAYOUT_CODE: 'layout__code',
   LAYOUT_NUMBERS: 'layout__numbers',
 };
 
@@ -69,6 +71,15 @@ export default class LayoutView extends View {
     const creatorNumbers = this.getNumbers(NUM_LINES);
 
     creatorWindow.addInnerElement(creatorNumbers);
+    const paramsCode: ElementParams = {
+      tag: 'pre',
+      classesName: [CssClasses.LAYOUT_CODE],
+    };
+    const creatorCode = new ElementCreator(paramsCode);
+    const currentLevel: RoomObjectArray = LEVELS[STATE.currentLevel];
+    this.drawCode(creatorCode, currentLevel);
+
+    creatorWindow.addInnerElement(creatorCode);
     this.elementCreator.addInnerElement(creatorWindow);
   }
 
@@ -89,5 +100,17 @@ export default class LayoutView extends View {
       creatorNumbers.addInnerElement(creatorItem);
     }
     return creatorNumbers;
+  }
+
+  private drawCode(creatorParent: ElementCreator, elementsArray: RoomObjectArray): void {
+    elementsArray.forEach((element) => {
+      const paramsElement: ElementParams = {
+        tag: element.tagName,
+        classesName: [element.class],
+      };
+      const creatorElement = new ElementCreator(paramsElement);
+      if (element.inner) this.drawCode(creatorElement, element?.inner);
+      creatorParent.addInnerElement(creatorElement);
+    });
   }
 }

@@ -20,6 +20,35 @@
   background-position:  0 100%;
 }
 
+.floor.level-0 {
+  padding: 43px;
+}
+
+rug {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 336px;
+  height: 180px;
+  background: url('../../../../img/rug.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+}
+
+pillow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  padding-bottom: 70px;
+  height: 200px;
+  background: url('../../../../img/pillow.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: center;
+}
+
 cat.animal {
   position: relative;
   display: flex;

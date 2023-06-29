@@ -10,6 +10,8 @@ const CssClasses = {
 };
 
 export default class RoomView extends View {
+  private creatorFloor: ElementCreator | null = null;
+
   constructor() {
     const params: ElementParams = {
       tag: 'div',
@@ -20,8 +22,9 @@ export default class RoomView extends View {
     this.configureView();
   }
 
-  public onEnterClick(): void {
-    console.log('view know it!');
+  public onLevelChange(): void {
+    this.clearFloor();
+    if (this.creatorFloor) this.draw(this.creatorFloor);
   }
 
   private configureView(): void {
@@ -29,13 +32,14 @@ export default class RoomView extends View {
       tag: 'div',
       classesName: [CssClasses.FLOOR],
     };
-    const creatorFloor = new ElementCreator(paramsFloor);
-    this.draw(creatorFloor);
-    this.elementCreator.addInnerElement(creatorFloor);
+    this.creatorFloor = new ElementCreator(paramsFloor);
+    this.draw(this.creatorFloor);
+    this.elementCreator.addInnerElement(this.creatorFloor);
   }
 
   private draw(creatorContainer: ElementCreator): void {
     const currentLevel: RoomObjectArray = LEVELS[STATE.currentLevel];
+    creatorContainer.setCssClass([`level-${STATE.currentLevel}`]);
     this.drawElements(creatorContainer, currentLevel);
   }
 
@@ -49,5 +53,15 @@ export default class RoomView extends View {
       if (objectElement.inner) this.drawElements(creatorElement, objectElement?.inner);
       parent.addInnerElement(creatorElement);
     });
+  }
+
+  private clearFloor(): void {
+    if (this.creatorFloor) {
+      let firstChild = this.creatorFloor.getElement()?.firstChild;
+      while (firstChild) {
+        this.creatorFloor.getElement()?.removeChild(firstChild);
+        firstChild = this.creatorFloor.getElement()?.firstChild;
+      }
+    }
   }
 }

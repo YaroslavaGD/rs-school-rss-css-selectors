@@ -43,6 +43,6 @@ export default class MainView extends View {
       this.elementCreator.addInnerElement(footer);
     }
 
-    eventEmitter.subscribe(EventType.CHANGE_LEVEL, roomView.onEnterClick);
+    eventEmitter.subscribe(EventType.CHANGE_LEVEL, roomView.onLevelChange.bind(roomView));
   }
 }

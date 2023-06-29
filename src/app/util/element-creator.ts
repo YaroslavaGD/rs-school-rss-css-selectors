@@ -23,14 +23,14 @@ export default class ElementCreator {
     return this.element;
   }
 
-  private createElement(params: ElementParams): void {
-    this.element = document.createElement(params.tag);
-  }
-
-  private setCssClass(cssClasses: ClassesArr): void {
+  public setCssClass(cssClasses: ClassesArr): void {
     if (this.element) {
       this.element.classList.add(...cssClasses);
     }
+  }
+
+  private createElement(params: ElementParams): void {
+    this.element = document.createElement(params.tag);
   }
 
   private setTextContent(textContent: string): void {
