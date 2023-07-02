@@ -26,6 +26,8 @@ const TEXT_INPUT = 'Type in a CSS selector';
 const TEXT_BUTTON = 'Enter';
 
 export default class CodeView extends View {
+  private userInput: HTMLElement | null = null;
+
   constructor() {
     const params: ElementParams = {
       tag: 'div',
@@ -33,6 +35,14 @@ export default class CodeView extends View {
     };
     super(params);
     this.configureView();
+  }
+
+  public onLevelChange(): void {
+    const input = this.userInput;
+
+    if (input instanceof HTMLInputElement) {
+      input.value = '';
+    }
   }
 
   private configureView(): void {
@@ -73,8 +83,8 @@ export default class CodeView extends View {
     };
     const creatorWindow = new ElementCreator(paramsWindow);
     const creatorNumbers = this.getNumbers(NUM_LINES);
-    const creatorInput = this.getInput();
-    const creatorButton = this.getButton();
+    const creatorInput = this.setInput();
+    const creatorButton = this.setButton();
 
     creatorWindow.addInnerElement(creatorNumbers);
     creatorWindow.addInnerElement(creatorInput);
@@ -101,7 +111,7 @@ export default class CodeView extends View {
     return creatorNumbers;
   }
 
-  private getInput(): ElementCreator {
+  private setInput(): ElementCreator {
     const paramsInput: ElementParams = {
       tag: 'input',
       classesName: [CssClasses.CODE_INPUT],
@@ -111,18 +121,17 @@ export default class CodeView extends View {
     const creatorInput = new ElementCreator(paramsInput);
 
     creatorInput.setOnKeypress((event: Event | undefined): void => {
-      console.log('setOnKeyInput');
       if (event instanceof KeyboardEvent && event.key === 'Enter') {
         event.preventDefault();
-        const input = creatorInput.getElement();
+        const input = this.userInput;
         if (input instanceof HTMLInputElement) {
-          console.log(input.value);
           eventEmitter.emit(EventType.USER_INPUT, input.value);
         }
       }
     });
-    const inputElement = creatorInput.getElement();
 
+    const inputElement = creatorInput.getElement();
+    this.userInput = inputElement;
     if (inputElement instanceof HTMLInputElement) {
       inputElement.placeholder = TEXT_INPUT;
     }
@@ -130,14 +139,16 @@ export default class CodeView extends View {
     return creatorInput;
   }
 
-  private getButton(): ElementCreator {
+  private setButton(): ElementCreator {
     const paramsButton: ElementParams = {
       tag: 'button',
       classesName: [CssClasses.CODE_BUTTON],
       textContent: TEXT_BUTTON,
       callback: () => {
-        console.log('click enter Btn');
-        eventEmitter.emit(EventType.CHANGE_LEVEL);
+        const input = this.userInput;
+        if (input instanceof HTMLInputElement) {
+          eventEmitter.emit(EventType.USER_INPUT, input.value);
+        }
       },
     };
     const creatorButton = new ElementCreator(paramsButton);

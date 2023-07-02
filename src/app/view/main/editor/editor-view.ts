@@ -21,7 +21,8 @@ export default class EditorView extends View {
   }
 
   private configureView(): void {
-    const code: HTMLElement | null = new CodeView().getHTMLElement();
+    const codeView = new CodeView();
+    const code: HTMLElement | null = codeView.getHTMLElement();
     if (code instanceof Node) {
       this.elementCreator.addInnerElement(code);
     }
@@ -31,6 +32,7 @@ export default class EditorView extends View {
       this.elementCreator.addInnerElement(layout);
     }
 
+    eventEmitter.subscribe(EventType.CHANGE_LEVEL, codeView.onLevelChange.bind(codeView));
     eventEmitter.subscribe(EventType.CHANGE_LEVEL, layoutView.onLevelChange.bind(layoutView));
   }
 }

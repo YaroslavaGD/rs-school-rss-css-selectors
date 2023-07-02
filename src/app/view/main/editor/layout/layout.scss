@@ -1,5 +1,5 @@
 .layout {
-  width: 50%;
+  width: 100%;
   border-right: solid 1px rgba(255,255,255,.03);
   border-bottom: solid 1px rgba(255,255,255,.03);
   &__header {
@@ -25,9 +25,37 @@
 
   &__window {
     position: relative;
-    min-height: 432px;
+    overflow: auto;
+    height: 250px;
     padding: 10px 10px 10px 46px;
     background: rgba(0, 0, 0, .3);
+    // scrollbar-color: #d4aa70 #e4e4e4;
+    // scrollbar-width: thin;
+    transition: scrollbar-color 0.3s ease-out;
+  }
+
+  &__window::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &__window::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &__window::-webkit-scrollbar-thumb {
+    width: 10px;
+    border: 5px solid transparent;
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, .3);
+    // background-clip: content-box;
+  }
+
+  &__window::-webkit-scrollbar-thumb:hover {
+    background-color: #5749d2;
+  }
+  
+  &__window :hover {
+    scrollbar-color: #5749d2;
   }
   
   &__numbers {
@@ -38,7 +66,11 @@
     left: 0;
     padding: 6px 10px;
     text-align: right;
-    color: #666666;
+    color: #c7c7c7;
     border-right: 1px solid #333333;
+  }
+
+  &__code {
+    margin: 0;
   }
 }
