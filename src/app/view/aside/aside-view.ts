@@ -29,6 +29,7 @@ export default class AsideView extends View {
     const menuButtonView: HTMLElement | null = new MenuButtonView().getHTMLElement();
 
     eventEmitter.subscribe(EventType.CHANGE_LEVEL, levelsNav.onLevelChange.bind(levelsNav));
+    eventEmitter.subscribe(EventType.CORRECT_ANSWER, levelsNav.onCorrectAnswer.bind(levelsNav));
 
     if (rulesView instanceof Node) {
       this.elementCreator.addInnerElement(rulesView);

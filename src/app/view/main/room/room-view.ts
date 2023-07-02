@@ -45,7 +45,7 @@ export default class RoomView extends View {
         }
 
         if (isCorrectAnswer) {
-          eventEmitter.emit(EventType.CORRECT_ANSWER);
+          eventEmitter.emit(EventType.CORRECT_ANSWER, STATE.currentLevel.toString());
         } else {
           eventEmitter.emit(EventType.WRONG_ANSWER);
         }
@@ -96,6 +96,7 @@ export default class RoomView extends View {
 
       if (objectElement.answer) {
         const currentHtmlElement = creatorElement.getElement();
+        currentHtmlElement?.classList.add('selection');
         if (currentHtmlElement) STATE.currentAnswer.push(currentHtmlElement);
       }
     });

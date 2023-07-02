@@ -81,8 +81,12 @@
     }
 
     .active &::after {
-      border-color: solid 3px #c0d6df;
+      border-color: #c0d6df;
       opacity: 1;
+    }
+    .done &::after {
+      border-color: #00ffdd;
+      opacity: 0.5;
     }
   }
 

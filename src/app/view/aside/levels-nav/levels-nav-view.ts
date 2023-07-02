@@ -14,6 +14,7 @@ const CssClasses = {
   LEVELS_NAV_BUTTON: 'levels-nav__button',
   LEVELS_NAV_NAME: 'levels-nav__name',
   LEVELS_NAV_ITEM_ACTIVE: 'active',
+  LEVELS_NAV_ITEM_DONE: 'done',
 
   LEVELS_RESET: 'levels-nav__reset',
 };
@@ -55,6 +56,13 @@ export default class LevelsNavView extends View {
       element.classList.remove(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
       if (i === STATE.currentLevel) element.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
     });
+  }
+
+  public onCorrectAnswer(lastLevel?: string): void {
+    if (lastLevel) {
+      const index = Number(lastLevel);
+      this.liElements[index].classList.add(CssClasses.LEVELS_NAV_ITEM_DONE);
+    }
   }
 
   private configureView(): void {
