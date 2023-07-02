@@ -22,6 +22,7 @@ export type RoomObject = {
   name: string;
   tagName: string;
   class: string;
+  answer?: 'true';
   inner?: RoomObject[];
 };
 

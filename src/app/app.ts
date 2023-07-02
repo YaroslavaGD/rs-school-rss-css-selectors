@@ -1,6 +1,7 @@
 import '../index.scss';
 import MainView from './view/main/main-view';
 import AsideView from './view/aside/aside-view';
+import { EventType, eventEmitter } from './event-emitter/event-emitter';
 
 export default class App {
   constructor() {
@@ -10,15 +11,20 @@ export default class App {
   public run(): void {}
 
   private createView(): void {
-    const mainView: HTMLElement | null = new MainView().getHTMLElement();
-    const asideView: HTMLElement | null = new AsideView().getHTMLElement();
+    const mainView = new MainView();
+    const asideView = new AsideView();
 
-    if (mainView instanceof Node) {
-      document.body.append(mainView);
+    const main: HTMLElement | null = mainView.getHTMLElement();
+    const aside: HTMLElement | null = asideView.getHTMLElement();
+
+    eventEmitter.subscribe(EventType.CORRECT_ANSWER, mainView.onAnswerCorrect.bind(mainView));
+
+    if (main instanceof Node) {
+      document.body.append(main);
     }
 
-    if (asideView instanceof Node) {
-      document.body.append(asideView);
+    if (aside instanceof Node) {
+      document.body.append(aside);
     }
   }
 }

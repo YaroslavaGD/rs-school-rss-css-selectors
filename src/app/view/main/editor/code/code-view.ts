@@ -109,6 +109,18 @@ export default class CodeView extends View {
       callback: () => {},
     };
     const creatorInput = new ElementCreator(paramsInput);
+
+    creatorInput.setOnKeypress((event: Event | undefined): void => {
+      console.log('setOnKeyInput');
+      if (event instanceof KeyboardEvent && event.key === 'Enter') {
+        event.preventDefault();
+        const input = creatorInput.getElement();
+        if (input instanceof HTMLInputElement) {
+          console.log(input.value);
+          eventEmitter.emit(EventType.USER_INPUT, input.value);
+        }
+      }
+    });
     const inputElement = creatorInput.getElement();
 
     if (inputElement instanceof HTMLInputElement) {

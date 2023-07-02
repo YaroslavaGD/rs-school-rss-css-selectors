@@ -1,18 +1,21 @@
 export enum EventType {
   CHANGE_LEVEL = 'changeLevel',
+  USER_INPUT = 'userInput',
+  CORRECT_ANSWER = 'correctAnswer',
+  WRONG_ANSWER = 'wrongAnswer',
 }
 
 export const eventEmitter: {
   readonly events: Record<string, (() => void)[]>;
-  emit(eventType: EventType): void;
-  subscribe(eventType: EventType, callback: () => void): void;
+  emit(eventType: EventType, data?: string): void;
+  subscribe(eventType: EventType, callback: (data?: string) => void): void;
   unsubscribe(eventType: EventType): void;
 } = {
   events: {},
 
-  emit(eventName) {
+  emit(eventName, data) {
     if (!this.events[eventName]) return;
-    this.events[eventName].forEach((callback: () => void) => callback());
+    this.events[eventName].forEach((callback: (data?: string) => void) => callback(data));
   },
 
   subscribe(eventName, callback) {

@@ -7,6 +7,7 @@ import FooterView from '../footer/footer-view';
 import RoomView from './room/room-view';
 import EditorView from './editor/editor-view';
 import { EventType, eventEmitter } from '../../event-emitter/event-emitter';
+import { STATE } from '../../data/data';
 
 const CssClasses = {
   MAIN: 'main',
@@ -21,6 +22,11 @@ export default class MainView extends View {
 
     super(params);
     this.configureView();
+  }
+
+  public onAnswerCorrect(): void {
+    STATE.currentLevel += 1;
+    eventEmitter.emit(EventType.CHANGE_LEVEL);
   }
 
   private configureView(): void {
@@ -44,5 +50,7 @@ export default class MainView extends View {
     }
 
     eventEmitter.subscribe(EventType.CHANGE_LEVEL, roomView.onLevelChange.bind(roomView));
+    eventEmitter.subscribe(EventType.USER_INPUT, roomView.onUserInput.bind(roomView));
+    eventEmitter.subscribe(EventType.CORRECT_ANSWER, roomView.onAnswerCorrect.bind(roomView));
   }
 }
