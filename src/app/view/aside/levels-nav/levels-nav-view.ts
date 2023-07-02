@@ -13,6 +13,7 @@ const CssClasses = {
   LEVELS_NAV_ITEM: 'levels-nav__item',
   LEVELS_NAV_BUTTON: 'levels-nav__button',
   LEVELS_NAV_NAME: 'levels-nav__name',
+  LEVELS_NAV_ITEM_ACTIVE: 'active',
 
   LEVELS_RESET: 'levels-nav__reset',
 };
@@ -20,7 +21,18 @@ const CssClasses = {
 const TEXT_HEADER = 'Choose a level';
 const TEXT_RESET = 'Reset progress';
 
-const LevelsTextArr = ['A', 'A', '#id', 'A B', '#id A', '.classname', 'A.classname', 'A, B'];
+const LevelsTextArr = [
+  'tagName',
+  '*',
+  '#id',
+  '.className',
+  'tagName.className',
+  'tagName tagName',
+  'tagName, tagName',
+  'tagName + tagName',
+  'tagName > tagName',
+  'tagName ~ tagName',
+];
 
 export default class LevelsNavView extends View {
   private liElements: HTMLElement[] = [];
@@ -36,6 +48,13 @@ export default class LevelsNavView extends View {
 
   public setHeader(): void {
     //    console.log('enter clicked - i know it!');
+  }
+
+  public onLevelChange(): void {
+    this.liElements.forEach((element, i) => {
+      element.classList.remove(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+      if (i === STATE.currentLevel) element.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+    });
   }
 
   private configureView(): void {
@@ -59,11 +78,14 @@ export default class LevelsNavView extends View {
   private setLevels(levelsTextArr: string[]): void {
     const creatorLevels = this.createOl();
 
-    levelsTextArr.forEach((levelText) => {
+    levelsTextArr.forEach((levelText, i) => {
       const creatorLevelItem = this.createLi();
       const liElement = creatorLevelItem.getElement();
 
-      if (liElement) this.liElements.push(liElement);
+      if (liElement instanceof HTMLElement) {
+        if (i === STATE.currentLevel) liElement.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+        this.liElements.push(liElement);
+      }
 
       const creatorLevelButton = this.createButton();
       const creatorLevelName = this.createSpan(levelText);
