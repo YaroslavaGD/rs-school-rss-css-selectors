@@ -8,7 +8,7 @@
   justify-content: space-around;
   padding: 70px;
   transform: rotateX(20deg);
-  width: 90%;
+  width: 75%;
   opacity: 1;
   margin: 0 auto;
   min-height: 300px;
@@ -27,8 +27,30 @@
   transition: all .4s cubic-bezier(.65, 0, .35, 1);;
 }
 
+[data-hover='true']::after {
+  content: attr(data-after);
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  color: rgba(111, 111, 111, 0.95);
+  text-align: left;
+  border-radius: 10px;
+  background-color: #c0d6df;
+  transform: translate(-100%, 0%);
+  z-index: 1000;
+}
+
+rug[data-hover='true']::after {
+  left: 20px;
+}
+
 rug,
 rugred {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,15 +59,28 @@ rugred {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position-y: bottom;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+rug::after,
+rugred::after {
+  left: 60px;
 }
 
 rug {
   background-image: url('../../../../img/rug.svg');
 }
+rug[data-hover='true']  {
+  background-image: url('../../../../img/rug-select.svg');
+}
 
 rugred {
   height: 160px;
   background-image: url('../../../../img/rug-red.svg');
+}
+rugred[data-hover='true']  {
+  background-image: url('../../../../img/rug-red-select.svg');
 }
 
 pillow {
@@ -54,14 +89,21 @@ pillow {
   justify-content: center;
   width: 240px;
   padding-bottom: 70px;
-  height: 200px;
+  height: 130px;
   background: url('../../../../img/pillow.svg');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position-y: center;
+  cursor: pointer;
+  transition: all 0.1s;
 }
+
 pillow.textile-capybara {
   padding-bottom: 35px;
+}
+
+pillow[data-hover='true'] {
+  background-image: url('../../../../img/pillow-select.svg');
 }
 
 cat.animal,
@@ -71,12 +113,17 @@ capybara.animal {
   display: flex;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 0.1s;
 }
 
 cat.animal {
   width: 150px;
   height: 116px;
   background-image: url('../../../../img/cat.svg');
+}
+cat.animal[data-hover='true']  {
+  background-image: url('../../../../img/cat-select.svg');
 }
 
 dog.animal {
@@ -85,12 +132,20 @@ dog.animal {
   background-image: url('../../../../img/dog.svg');
 }
 
+dog.animal[data-hover='true']  {
+  background-image: url('../../../../img/dog-select.svg');
+}
+
 capybara.animal {
   // width: 190px;
   // height: 110px;
   width: 246px;
   height: 137px;
   background-image: url('../../../../img/capybara.svg');
+}
+
+capybara.animal[data-hover='true'] {
+  background-image: url('../../../../img/capybara-select.svg');
 }
 
 cat.animal cat.small,
@@ -102,10 +157,16 @@ capybara.animal capybara.small {
   height: 75px;
   background-size: 100%;
   background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 0.1s;
 }
 
 cat.animal cat.small {
   background-image: url('../../../../img/cat-small.svg');
+}
+
+cat.animal cat.small[data-hover='true'] {
+  background-image: url('../../../../img/cat-small-select.svg');
 }
 
 dog.animal dog.small {
@@ -113,9 +174,17 @@ dog.animal dog.small {
   background-image: url('../../../../img/dog-small.svg');
 }
 
+dog.animal dog.small[data-hover='true']  {
+  background-image: url('../../../../img/dog-small-select.svg');
+}
+
 capybara.animal capybara.small {
   height: 50px;
   background-image: url('../../../../img/capybara-small.svg');
+}
+
+capybara.animal capybara.small[data-hover='true']  {
+  background-image: url('../../../../img/capybara-small-select.svg');
 }
 
 cat.animal cat.small:nth-child(1),

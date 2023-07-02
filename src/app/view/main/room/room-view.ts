@@ -13,6 +13,8 @@ const CssClasses = {
 export default class RoomView extends View {
   private creatorFloor: ElementCreator | null = null;
 
+  private allElements: HTMLElement[] = new Array<HTMLElement>();
+
   constructor() {
     const params: ElementParams = {
       tag: 'div',
@@ -67,6 +69,7 @@ export default class RoomView extends View {
       classesName: [CssClasses.FLOOR],
     };
     this.creatorFloor = new ElementCreator(paramsFloor);
+
     this.draw(this.creatorFloor);
     this.elementCreator.addInnerElement(this.creatorFloor);
   }
@@ -85,10 +88,15 @@ export default class RoomView extends View {
         tag: objectElement.tagName,
         classesName: [objectElement.class],
       };
+
       const creatorElement = new ElementCreator(paramsElement);
+      creatorElement.setCallback(this.onMouseOver.bind(this), 'mouseover');
+      creatorElement.setCallback(this.onMouseLeave.bind(this), 'mouseleave');
+
       const element = creatorElement.getElement();
       if (element instanceof HTMLElement) {
         element.dataset.name = objectElement.name;
+        this.allElements.push(element);
       }
 
       if (objectElement.inner) this.drawElements(creatorElement, objectElement?.inner);
@@ -102,9 +110,39 @@ export default class RoomView extends View {
     });
   }
 
+  private onMouseOver(event?: Event): void {
+    if (event) {
+      const eventTarget = event.target;
+      event.stopPropagation();
+
+      this.allElements.forEach((element) => {
+        element.setAttribute('data-hover', 'false');
+      });
+
+      if (eventTarget instanceof HTMLElement) {
+        eventTarget.setAttribute('data-hover', 'true');
+        const tagName = eventTarget.tagName.toLowerCase();
+        const className = eventTarget.classList[0];
+        const hintMessage = `<${tagName} class="${className}">\n</${tagName}>`;
+        if (tagName) eventTarget.setAttribute('data-after', hintMessage);
+      }
+    }
+  }
+
+  private onMouseLeave(event?: Event): void {
+    if (event) {
+      const eventTarget = event.target;
+      event.stopPropagation();
+      if (eventTarget instanceof HTMLElement) {
+        eventTarget.setAttribute('data-hover', 'false');
+      }
+    }
+  }
+
   private clearFloor(): void {
     if (this.creatorFloor) {
       let firstChild = this.creatorFloor.getElement()?.firstChild;
+
       while (firstChild) {
         this.creatorFloor.getElement()?.removeChild(firstChild);
         firstChild = this.creatorFloor.getElement()?.firstChild;

@@ -47,9 +47,10 @@ export default class ElementCreator {
     this.element = document.createElement(params.tag);
   }
 
-  public setCallback(callback: Callback): void {
+  public setCallback(callback: Callback, eventName?: string): void {
     if (this.element) {
-      this.element.addEventListener('click', (event: Event) => callback(event));
+      if (eventName) this.element.addEventListener(eventName, (event: Event) => callback(event));
+      else this.element.addEventListener('click', (event: Event) => callback(event));
     }
   }
 

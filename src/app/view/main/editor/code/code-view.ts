@@ -120,7 +120,7 @@ export default class CodeView extends View {
     };
     const creatorInput = new ElementCreator(paramsInput);
 
-    creatorInput.setOnKeypress((event: Event | undefined): void => {
+    creatorInput.setCallback((event: Event | undefined): void => {
       if (event instanceof KeyboardEvent && event.key === 'Enter') {
         event.preventDefault();
         const input = this.userInput;
@@ -128,7 +128,7 @@ export default class CodeView extends View {
           eventEmitter.emit(EventType.USER_INPUT, input.value);
         }
       }
-    });
+    }, 'keypress');
 
     const inputElement = creatorInput.getElement();
     this.userInput = inputElement;
