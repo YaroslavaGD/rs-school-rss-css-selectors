@@ -1,6 +1,7 @@
 .editor {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   width: 90%;
   margin: 0 auto;
   border: solid 0.625rem rgba(0, 0, 0, 0.35);

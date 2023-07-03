@@ -20,7 +20,7 @@ const TEXT_HEADER = {
   FILENAME: 'style.css',
 };
 
-const NUM_LINES = 20;
+const NUM_LINES = 2;
 
 const TEXT_INPUT = 'Type in a CSS selector';
 const TEXT_BUTTON = 'Enter';
