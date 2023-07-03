@@ -7,3 +7,9 @@
   bottom: 0;
   background: #221e18;
 }
+
+@media (max-width: 1680px) {
+  .aside {
+    width: 20vw;
+  }
+}

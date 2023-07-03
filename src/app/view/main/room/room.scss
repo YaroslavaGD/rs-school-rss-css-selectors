@@ -272,3 +272,15 @@ dog.animal dog.small:nth-child(4) {
   from { transform: scale(0.9); }
   to { transform: scale(1); }
 }
+
+@media (max-width: 1710px) {
+  .floor {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1390px) {
+  .floor {
+    width: 100%;
+  }
+}
