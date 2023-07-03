@@ -28,3 +28,6 @@ export type RoomObject = {
 };
 
 export type RoomObjectArray = RoomObject[];
+
+export type LevelState = 'done' | 'not-done' | 'help';
+export type LevelsStateArray = LevelState[];

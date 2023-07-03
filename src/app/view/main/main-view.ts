@@ -25,8 +25,18 @@ export default class MainView extends View {
   }
 
   public onAnswerCorrect(): void {
-    STATE.currentLevel += 1;
-    eventEmitter.emit(EventType.CHANGE_LEVEL);
+    STATE.levelsState[STATE.currentLevel] = 'done';
+    const notDoneIndex = STATE.levelsState.indexOf('not-done');
+    if (notDoneIndex !== -1 && notDoneIndex !== STATE.currentLevel) {
+      if (STATE.currentLevel < 9) {
+        STATE.currentLevel += 1;
+      } else {
+        STATE.currentLevel = notDoneIndex;
+      }
+      eventEmitter.emit(EventType.CHANGE_LEVEL);
+    } else {
+      eventEmitter.emit(EventType.WIN);
+    }
   }
 
   private configureView(): void {

@@ -29,6 +29,12 @@ export default class ElementCreator {
     }
   }
 
+  public removeCssClass(cssClass: string): void {
+    if (this.element) {
+      this.element.classList.remove(cssClass);
+    }
+  }
+
   public setTextContent(textContent: string): void {
     if (this.element) {
       this.element.innerText = textContent;

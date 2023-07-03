@@ -2,7 +2,9 @@ export enum EventType {
   CHANGE_LEVEL = 'changeLevel',
   USER_INPUT = 'userInput',
   CORRECT_ANSWER = 'correctAnswer',
+  HELP_ANSWER = 'helpAnswer',
   WRONG_ANSWER = 'wrongAnswer',
+  WIN = 'win',
 }
 
 export const eventEmitter: {

@@ -3,7 +3,32 @@ import { RoomObjectArray } from '../../types';
 export const STATE = {
   currentLevel: 0,
   currentAnswer: new Array<Element>(),
+  levelsState: [
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+    'not-done',
+  ],
 };
+
+export const HELP_ANSWERS = [
+  'capybara',
+  '*',
+  '.small',
+  'dog.animal',
+  '#catRibbon',
+  'rug capybara',
+  'cat, dog',
+  '.small + .small',
+  'rug > capybara',
+  'cat ~ dog',
+];
 
 export const LEVELS: RoomObjectArray[] = [
   // === 0 ===
