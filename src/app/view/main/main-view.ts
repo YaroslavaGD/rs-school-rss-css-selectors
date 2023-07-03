@@ -39,6 +39,12 @@ export default class MainView extends View {
     }
   }
 
+  public onReset(): void {
+    STATE.currentLevel = 0;
+    STATE.levelsState.map(() => 'not-done');
+    eventEmitter.emit(EventType.CHANGE_LEVEL);
+  }
+
   private configureView(): void {
     const header: HTMLElement | null = new HeaderView().getHTMLElement();
     const roomView = new RoomView();

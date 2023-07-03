@@ -21,6 +21,7 @@ export default class App {
     const modal: HTMLElement | null = modalView.getHTMLElement();
 
     eventEmitter.subscribe(EventType.CORRECT_ANSWER, mainView.onAnswerCorrect.bind(mainView));
+    eventEmitter.subscribe(EventType.RESET, mainView.onReset.bind(mainView));
     eventEmitter.subscribe(EventType.WIN, modalView.onWin.bind(modalView));
 
     if (main instanceof Node) {

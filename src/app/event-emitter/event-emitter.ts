@@ -5,6 +5,7 @@ export enum EventType {
   HELP_ANSWER = 'helpAnswer',
   WRONG_ANSWER = 'wrongAnswer',
   WIN = 'win',
+  RESET = 'reset',
 }
 
 export const eventEmitter: {

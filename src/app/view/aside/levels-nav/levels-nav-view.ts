@@ -15,6 +15,7 @@ const CssClasses = {
   LEVELS_NAV_NAME: 'levels-nav__name',
   LEVELS_NAV_ITEM_ACTIVE: 'active',
   LEVELS_NAV_ITEM_DONE: 'done',
+  LEVELS_NAV_ITEM_HELP: 'help',
 
   LEVELS_RESET: 'levels-nav__reset',
 };
@@ -74,13 +75,26 @@ export default class LevelsNavView extends View {
     const creatorHeader = new ElementCreator(paramsHeader);
     this.elementCreator.addInnerElement(creatorHeader);
     this.setLevels(LevelsTextArr);
+
+    const creatorReset = this.createReset();
+    this.elementCreator.addInnerElement(creatorReset);
+  }
+
+  private createReset(): ElementCreator {
     const paramsReset: ElementParams = {
       tag: 'button',
       classesName: [CssClasses.LEVELS_RESET],
       textContent: TEXT_RESET,
+      callback: () => {
+        this.liElements.forEach((element) => {
+          element.classList.remove(CssClasses.LEVELS_NAV_ITEM_DONE);
+          element.classList.remove(CssClasses.LEVELS_NAV_ITEM_HELP);
+        });
+        eventEmitter.emit(EventType.RESET);
+      },
     };
     const creatorReset = new ElementCreator(paramsReset);
-    this.elementCreator.addInnerElement(creatorReset);
+    return creatorReset;
   }
 
   private setLevels(levelsTextArr: string[]): void {
