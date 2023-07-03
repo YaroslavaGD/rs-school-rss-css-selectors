@@ -33,30 +33,50 @@ export default class RoomView extends View {
   public onUserInput(data?: string): void {
     let isCorrectAnswer = true;
     if (data) {
-      const userQuerySelector: NodeListOf<Element> | undefined = this.creatorFloor
-        ?.getElement()
-        ?.querySelectorAll(data);
-      if (userQuerySelector) {
-        const userArray: Element[] = Array.from(userQuerySelector);
-        userArray.sort(this.compareElementsByDataName);
+      if (!this.checkTextWordsStartWithLetter(data)) {
+        eventEmitter.emit(EventType.WRONG_ANSWER);
+      } else {
+        const userQuerySelector: NodeListOf<Element> | undefined = this.creatorFloor
+          ?.getElement()
+          ?.querySelectorAll(data);
+        if (userQuerySelector) {
+          const userArray: Element[] = Array.from(userQuerySelector);
+          userArray.sort(this.compareElementsByDataName);
 
-        if (userArray.length !== STATE.currentAnswer.length) isCorrectAnswer = false;
+          if (userArray.length !== STATE.currentAnswer.length) isCorrectAnswer = false;
 
-        if (isCorrectAnswer) {
-          for (let i = 0; i < STATE.currentAnswer.length; i += 1) {
-            if (userArray[i] !== STATE.currentAnswer[i]) {
-              isCorrectAnswer = false;
+          if (isCorrectAnswer) {
+            for (let i = 0; i < STATE.currentAnswer.length; i += 1) {
+              if (userArray[i] !== STATE.currentAnswer[i]) {
+                isCorrectAnswer = false;
+              }
             }
           }
-        }
 
-        if (isCorrectAnswer) {
-          eventEmitter.emit(EventType.CORRECT_ANSWER, STATE.currentLevel.toString());
-        } else {
-          eventEmitter.emit(EventType.WRONG_ANSWER);
+          if (isCorrectAnswer) {
+            eventEmitter.emit(EventType.CORRECT_ANSWER, STATE.currentLevel.toString());
+          } else {
+            eventEmitter.emit(EventType.WRONG_ANSWER);
+          }
         }
       }
     }
+  }
+
+  private checkTextWordsStartWithLetter(text: string): boolean {
+    const separators = [',', '.', '>', '<', '+', ' ', '~'];
+    const words = text.split(new RegExp(`[${separators.join('')}]`));
+
+    for (let i = 0; i < words.length; i += 1) {
+      const word = words[i];
+      const trimmedWord = word.trim();
+
+      if (trimmedWord !== '' && !Number.isNaN(Number(trimmedWord.charAt(0)))) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   public onAnswerCorrect(): void {
