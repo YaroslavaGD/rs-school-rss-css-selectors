@@ -40,9 +40,13 @@ export default class RoomView extends View {
         const userArray: Element[] = Array.from(userQuerySelector);
         userArray.sort(this.compareElementsByDataName);
 
-        for (let i = 0; i < STATE.currentAnswer.length; i += 1) {
-          if (userArray[i] !== STATE.currentAnswer[i]) {
-            isCorrectAnswer = false;
+        if (userArray.length !== STATE.currentAnswer.length) isCorrectAnswer = false;
+
+        if (isCorrectAnswer) {
+          for (let i = 0; i < STATE.currentAnswer.length; i += 1) {
+            if (userArray[i] !== STATE.currentAnswer[i]) {
+              isCorrectAnswer = false;
+            }
           }
         }
 
@@ -95,6 +99,9 @@ export default class RoomView extends View {
 
       const element = creatorElement.getElement();
       if (element instanceof HTMLElement) {
+        const id = objectElement.idName;
+        if (id) element.setAttribute('id', id);
+
         element.dataset.name = objectElement.name;
         this.allElements.push(element);
       }

@@ -25,9 +25,9 @@ const TEXT_RESET = 'Reset progress';
 const LevelsTextArr = [
   'tagName',
   '*',
-  '#id',
   '.className',
   'tagName.className',
+  '#id',
   'tagName tagName',
   'tagName, tagName',
   'tagName + tagName',
