@@ -130,7 +130,11 @@ export default class RoomView extends View {
         eventTarget.setAttribute('data-hover', 'true');
         const tagName = eventTarget.tagName.toLowerCase();
         const className = eventTarget.classList[0];
-        const hintMessage = `<${tagName} class="${className}">\n</${tagName}>`;
+
+        let hintMessage = `<${tagName} class="${className}">\n</${tagName}>`;
+        if (eventTarget.id.length !== 0)
+          hintMessage = `<${tagName} id="${eventTarget.id}" class="${className}">\n</${tagName}>`;
+
         if (tagName) eventTarget.setAttribute('data-after', hintMessage);
       }
     }

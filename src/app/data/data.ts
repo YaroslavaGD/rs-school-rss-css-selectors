@@ -292,31 +292,78 @@ export const LEVELS: RoomObjectArray[] = [
   // === 4 ===
   [
     {
-      name: 'big-cat',
-      tagName: 'cat',
-      class: 'animal',
+      name: 'rugred',
+      tagName: 'rugred',
+      class: 'textile',
       inner: [
         {
-          name: 'small-cat',
+          name: 'big-cat',
           tagName: 'cat',
-          class: 'small',
-        },
-        {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
-        },
-        {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
+          class: 'animal',
+          inner: [
+            {
+              name: 'small-cat',
+              tagName: 'cat',
+              class: 'small',
+            },
+            {
+              name: 'small-cat',
+              tagName: 'cat',
+              class: 'small',
+            },
+          ],
         },
       ],
     },
     {
-      name: 'big-dog',
-      tagName: 'dog',
-      class: 'animal',
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'pillow',
+          tagName: 'pillow',
+          class: 'textile',
+          inner: [
+            {
+              name: 'small-cat',
+              tagName: 'cat',
+              class: 'small',
+              idName: 'catRibbon',
+              answer: 'true',
+            },
+            {
+              name: 'small-cat',
+              tagName: 'cat',
+              class: 'small',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'rugred',
+      tagName: 'rugred',
+      class: 'textile',
+      inner: [
+        {
+          name: 'big-dog',
+          tagName: 'dog',
+          class: 'animal',
+          inner: [
+            {
+              name: 'small-dog',
+              tagName: 'dog',
+              class: 'small',
+            },
+            {
+              name: 'small-dog',
+              tagName: 'dog',
+              class: 'small',
+            },
+          ],
+        },
+      ],
     },
   ],
   // === 5 ===
@@ -332,19 +379,22 @@ export const LEVELS: RoomObjectArray[] = [
           class: 'textile',
           inner: [
             {
-              name: 'big-cat',
-              tagName: 'cat',
+              name: 'big-capybara',
+              tagName: 'capybara',
               class: 'animal',
+              answer: 'true',
               inner: [
                 {
-                  name: 'small-cat',
-                  tagName: 'cat',
+                  name: 'small-capybara',
+                  tagName: 'capybara',
                   class: 'small',
+                  answer: 'true',
                 },
                 {
-                  name: 'small-cat',
-                  tagName: 'cat',
+                  name: 'small-capybara',
+                  tagName: 'capybara',
                   class: 'small',
+                  answer: 'true',
                 },
               ],
             },
@@ -353,24 +403,53 @@ export const LEVELS: RoomObjectArray[] = [
       ],
     },
     {
-      name: 'big-cat',
-      tagName: 'cat',
-      class: 'animal',
+      name: 'rugred',
+      tagName: 'rugred',
+      class: 'textile',
       inner: [
         {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
+          name: 'big-dog',
+          tagName: 'dog',
+          class: 'animal',
+          inner: [
+            {
+              name: 'small-dog',
+              tagName: 'dog',
+              class: 'small',
+            },
+          ],
         },
         {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
+          name: 'big-capybara',
+          tagName: 'capybara',
+          class: 'animal',
         },
+      ],
+    },
+    {
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
         {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
+          name: 'big-capybara',
+          tagName: 'capybara',
+          class: 'animal',
+          answer: 'true',
+          inner: [
+            {
+              name: 'small-capybara',
+              tagName: 'capybara',
+              class: 'small',
+              answer: 'true',
+            },
+            {
+              name: 'small-capybara',
+              tagName: 'capybara',
+              class: 'small',
+              answer: 'true',
+            },
+          ],
         },
       ],
     },
@@ -378,35 +457,154 @@ export const LEVELS: RoomObjectArray[] = [
   // === 6 ===
   [
     {
-      name: 'big-cat',
-      tagName: 'cat',
-      class: 'animal',
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
       inner: [
         {
-          name: 'small-cat',
+          name: 'big-cat',
           tagName: 'cat',
-          class: 'small',
+          class: 'animal',
+          answer: 'true',
         },
         {
           name: 'small-cat',
           tagName: 'cat',
           class: 'small',
-        },
-        {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
+          answer: 'true',
         },
       ],
     },
     {
-      name: 'big-dog',
-      tagName: 'dog',
-      class: 'animal',
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'small-capybara',
+          tagName: 'capybara',
+          class: 'small',
+        },
+        {
+          name: 'big-capybara',
+          tagName: 'capybara',
+          class: 'animal',
+          inner: [
+            {
+              name: 'small-capybara',
+              tagName: 'capybara',
+              class: 'small',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'big-dog',
+          tagName: 'dog',
+          class: 'animal',
+          answer: 'true',
+          inner: [
+            {
+              name: 'small-dog',
+              tagName: 'dog',
+              class: 'small',
+              answer: 'true',
+            },
+            {
+              name: 'small-dog',
+              tagName: 'dog',
+              class: 'small',
+              answer: 'true',
+            },
+          ],
+        },
+      ],
     },
   ],
   // === 7 ===
   [
+    {
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'pillow',
+          tagName: 'pillow',
+          class: 'textile',
+          inner: [
+            {
+              name: 'big-dog',
+              tagName: 'dog',
+              class: 'animal',
+              inner: [
+                {
+                  name: 'small-dog',
+                  tagName: 'dog',
+                  class: 'small',
+                },
+                {
+                  name: 'small-dog',
+                  tagName: 'dog',
+                  class: 'small',
+                  answer: 'true',
+                },
+                {
+                  name: 'small-dog',
+                  tagName: 'dog',
+                  class: 'small',
+                  answer: 'true',
+                },
+                {
+                  name: 'small-dog',
+                  tagName: 'dog',
+                  class: 'small',
+                  answer: 'true',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'pillow',
+          tagName: 'pillow',
+          class: 'textile',
+          inner: [
+            {
+              name: 'big-capybara',
+              tagName: 'capybara',
+              class: 'animal',
+              inner: [
+                {
+                  name: 'small-capybara',
+                  tagName: 'capybara',
+                  class: 'small',
+                },
+                {
+                  name: 'small-capybara',
+                  tagName: 'capybara',
+                  class: 'small',
+                  answer: 'true',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
     {
       name: 'rug',
       tagName: 'rug',
@@ -431,6 +629,72 @@ export const LEVELS: RoomObjectArray[] = [
                   name: 'small-cat',
                   tagName: 'cat',
                   class: 'small',
+                  answer: 'true',
+                },
+                {
+                  name: 'small-cat',
+                  tagName: 'cat',
+                  class: 'small',
+                  answer: 'true',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  // === 8 ===
+  [
+    {
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'small-capybara',
+          tagName: 'capybara',
+          class: 'small',
+          answer: 'true',
+        },
+        {
+          name: 'pillow',
+          tagName: 'pillow',
+          class: 'textile',
+          inner: [
+            {
+              name: 'small-capybara',
+              tagName: 'capybara',
+              class: 'small',
+            },
+            {
+              name: 'small-capybara',
+              tagName: 'capybara',
+              class: 'small',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
+      inner: [
+        {
+          name: 'pillow',
+          tagName: 'pillow',
+          class: 'textile',
+          inner: [
+            {
+              name: 'big-capybara',
+              tagName: 'capybara',
+              class: 'animal',
+              inner: [
+                {
+                  name: 'small-capybara',
+                  tagName: 'capybara',
+                  class: 'small',
                 },
               ],
             },
@@ -439,9 +703,9 @@ export const LEVELS: RoomObjectArray[] = [
       ],
     },
     {
-      name: 'big-cat',
-      tagName: 'cat',
-      class: 'animal',
+      name: 'rug',
+      tagName: 'rug',
+      class: 'textile',
       inner: [
         {
           name: 'small-cat',
@@ -449,54 +713,43 @@ export const LEVELS: RoomObjectArray[] = [
           class: 'small',
         },
         {
-          name: 'small-cat',
-          tagName: 'cat',
+          name: 'small-capybara',
+          tagName: 'capybara',
           class: 'small',
+          answer: 'true',
         },
         {
-          name: 'small-cat',
-          tagName: 'cat',
+          name: 'small-dog',
+          tagName: 'dog',
           class: 'small',
         },
       ],
-    },
-  ],
-  // === 8 ===
-  [
-    {
-      name: 'big-cat',
-      tagName: 'cat',
-      class: 'animal',
-      inner: [
-        {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
-        },
-        {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
-        },
-        {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
-        },
-      ],
-    },
-    {
-      name: 'big-dog',
-      tagName: 'dog',
-      class: 'animal',
     },
   ],
   // === 9 ===
   [
     {
-      name: 'big-cat',
-      tagName: 'cat',
-      class: 'animal',
+      name: 'rugred',
+      tagName: 'rugred',
+      class: 'textile',
+      inner: [
+        {
+          name: 'big-cat',
+          tagName: 'cat',
+          class: 'animal',
+        },
+        {
+          name: 'big-dog',
+          tagName: 'dog',
+          class: 'animal',
+          answer: 'true',
+        },
+      ],
+    },
+    {
+      name: 'rugred',
+      tagName: 'rugred',
+      class: 'textile',
       inner: [
         {
           name: 'small-cat',
@@ -504,21 +757,35 @@ export const LEVELS: RoomObjectArray[] = [
           class: 'small',
         },
         {
-          name: 'small-cat',
-          tagName: 'cat',
-          class: 'small',
+          name: 'big-dog',
+          tagName: 'dog',
+          class: 'animal',
+          answer: 'true',
         },
         {
-          name: 'small-cat',
-          tagName: 'cat',
+          name: 'small-dog',
+          tagName: 'dog',
           class: 'small',
+          answer: 'true',
         },
       ],
     },
     {
-      name: 'big-dog',
-      tagName: 'dog',
-      class: 'animal',
+      name: 'rugred',
+      tagName: 'rugred',
+      class: 'textile',
+      inner: [
+        {
+          name: 'big-capybara',
+          tagName: 'capybara',
+          class: 'animal',
+        },
+        {
+          name: 'big-dog',
+          tagName: 'dog',
+          class: 'animal',
+        },
+      ],
     },
   ],
 ];
