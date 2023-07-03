@@ -33,6 +33,7 @@ export default class EditorView extends View {
     }
 
     eventEmitter.subscribe(EventType.CHANGE_LEVEL, codeView.onLevelChange.bind(codeView));
+    eventEmitter.subscribe(EventType.HELP_ANSWER, codeView.onHelp.bind(codeView));
     eventEmitter.subscribe(EventType.CHANGE_LEVEL, layoutView.onLevelChange.bind(layoutView));
   }
 }

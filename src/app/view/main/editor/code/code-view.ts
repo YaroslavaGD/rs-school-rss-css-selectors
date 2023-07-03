@@ -3,6 +3,7 @@ import View from '../../../view';
 import { ElementParams } from '../../../../../types';
 import ElementCreator from '../../../../util/element-creator';
 import { EventType, eventEmitter } from '../../../../event-emitter/event-emitter';
+import { HELP_ANSWERS, STATE } from '../../../../data/data';
 
 const CssClasses = {
   CODE: 'code',
@@ -42,6 +43,28 @@ export default class CodeView extends View {
 
     if (input instanceof HTMLInputElement) {
       input.value = '';
+    }
+  }
+
+  public async onHelp(): Promise<void> {
+    const delay = (ms: number): Promise<unknown> =>
+      new Promise((res) => {
+        setTimeout(res, ms);
+      });
+
+    console.log('on help');
+    const input = this.userInput;
+
+    if (input instanceof HTMLInputElement) {
+      const answer = HELP_ANSWERS[STATE.currentLevel];
+      input.value = '';
+
+      await Promise.all(
+        [...answer].map(async (char) => {
+          if (!/\s/.test(char)) await delay(300);
+          input.value += char;
+        }),
+      );
     }
   }
 
