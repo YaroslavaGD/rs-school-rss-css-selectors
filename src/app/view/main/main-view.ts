@@ -41,7 +41,9 @@ export default class MainView extends View {
 
   public onReset(): void {
     STATE.currentLevel = 0;
-    STATE.levelsState.map(() => 'not-done');
+    for (let i = 0; i < STATE.levelsState.length; i += 1) {
+      STATE.levelsState[i] = 'not-done';
+    }
     eventEmitter.emit(EventType.CHANGE_LEVEL);
   }
 
