@@ -7,7 +7,6 @@
   padding: 16px;
   z-index: 1;
   background: #374144;
-  // background: #221e18;
   transform: translateX(100%);
   transition: all .4s cubic-bezier(.65, 0, .35, 1);
 
@@ -86,6 +85,10 @@
     }
     .done &::after {
       border-color: #00ffdd;
+      opacity: 0.5;
+    }
+    .help &::after {
+      border-color: #ff4d13;
       opacity: 0.5;
     }
   }

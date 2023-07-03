@@ -52,7 +52,6 @@ export default class CodeView extends View {
         setTimeout(res, ms);
       });
 
-    console.log('on help');
     const input = this.userInput;
 
     if (input instanceof HTMLInputElement) {
@@ -61,7 +60,7 @@ export default class CodeView extends View {
 
       await Promise.all(
         [...answer].map(async (char) => {
-          if (!/\s/.test(char)) await delay(300);
+          await delay(30);
           input.value += char;
         }),
       );

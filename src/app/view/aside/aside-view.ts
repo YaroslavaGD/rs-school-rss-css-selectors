@@ -30,6 +30,7 @@ export default class AsideView extends View {
 
     eventEmitter.subscribe(EventType.CHANGE_LEVEL, levelsNav.onLevelChange.bind(levelsNav));
     eventEmitter.subscribe(EventType.CORRECT_ANSWER, levelsNav.onCorrectAnswer.bind(levelsNav));
+    eventEmitter.subscribe(EventType.HELP_ANSWER, levelsNav.onHelp.bind(levelsNav));
 
     if (rulesView instanceof Node) {
       this.elementCreator.addInnerElement(rulesView);

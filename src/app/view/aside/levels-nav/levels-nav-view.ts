@@ -15,6 +15,7 @@ const CssClasses = {
   LEVELS_NAV_NAME: 'levels-nav__name',
   LEVELS_NAV_ITEM_ACTIVE: 'active',
   LEVELS_NAV_ITEM_DONE: 'done',
+  LEVELS_NAV_ITEM_NOT_DONE: 'not-done',
   LEVELS_NAV_ITEM_HELP: 'help',
 
   LEVELS_RESET: 'levels-nav__reset',
@@ -55,15 +56,24 @@ export default class LevelsNavView extends View {
   public onLevelChange(): void {
     this.liElements.forEach((element, i) => {
       element.classList.remove(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
-      if (i === STATE.currentLevel) element.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+      if (i === STATE.currentLevel) {
+        element.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+      }
     });
   }
 
   public onCorrectAnswer(lastLevel?: string): void {
     if (lastLevel) {
       const index = Number(lastLevel);
+
+      this.liElements[index].classList.remove(CssClasses.LEVELS_NAV_ITEM_NOT_DONE);
+      this.liElements[index].classList.remove(CssClasses.LEVELS_NAV_ITEM_DONE);
       this.liElements[index].classList.add(CssClasses.LEVELS_NAV_ITEM_DONE);
     }
+  }
+
+  public onHelp(): void {
+    this.liElements[STATE.currentLevel].classList.add(CssClasses.LEVELS_NAV_ITEM_HELP);
   }
 
   private configureView(): void {
