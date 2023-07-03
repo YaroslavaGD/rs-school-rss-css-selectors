@@ -3,13 +3,36 @@ import MainView from './view/main/main-view';
 import AsideView from './view/aside/aside-view';
 import { EventType, eventEmitter } from './event-emitter/event-emitter';
 import ModalView from './view/modal/modal-view';
+import { STATE } from './data/data';
 
 export default class App {
   constructor() {
-    this.createView();
+    window.addEventListener('beforeunload', this.setLocalStorage.bind(this));
+    this.getLocalStorage();
   }
 
-  public run(): void {}
+  private setLocalStorage(): void {
+    localStorage.setItem('currentLevel', STATE.currentLevel.toString());
+    localStorage.setItem('levelsState', STATE.levelsState.toString());
+  }
+
+  private getLocalStorage(): void {
+    const currentLevel = localStorage.getItem('currentLevel');
+    if (currentLevel) {
+      STATE.currentLevel = Number(currentLevel);
+    }
+
+    const levelsState = localStorage.getItem('levelsState');
+    if (levelsState) {
+      const objectState = levelsState.split(',');
+
+      STATE.levelsState = objectState;
+    }
+  }
+
+  public run(): void {
+    this.createView();
+  }
 
   private createView(): void {
     const mainView = new MainView();

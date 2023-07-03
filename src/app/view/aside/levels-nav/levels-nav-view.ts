@@ -103,9 +103,11 @@ export default class LevelsNavView extends View {
     levelsTextArr.forEach((levelText, i) => {
       const creatorLevelItem = this.createLi();
       const liElement = creatorLevelItem.getElement();
-
       if (liElement instanceof HTMLElement) {
-        if (i === STATE.currentLevel) liElement.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+        liElement.classList.add(STATE.levelsState[i]);
+        if (i === STATE.currentLevel) {
+          liElement.classList.add(CssClasses.LEVELS_NAV_ITEM_ACTIVE);
+        }
         this.liElements.push(liElement);
       }
 
